@@ -5,7 +5,7 @@ import API_URL from "../constants";
 
 function MyProfile() {
 
-    const [user, setuser] = useState({})
+    const [user, setuser] = useState({username:"srushti",mobile:"7769993434",email:"xyz@gmail.com"})
 
     useEffect(() => {
         let url = API_URL + '/my-profile/' + localStorage.getItem('userId');

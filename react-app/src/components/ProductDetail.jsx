@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Header from "./Header";
 import API_URL from "../constants";
-
+import './ProductDetail.css';
 function ProductDetail() {
 
     const [product, setproduct] = useState()
-    const [user, setuser] = useState()
-    console.log(user, "user")
+    const [user, setuser] = useState('srushti')
+    console.log(user, "userrrrr")
     const p = useParams()
 
     useEffect(() => {
@@ -37,7 +37,7 @@ function ProductDetail() {
             })
             .catch((err) => {
                 alert('Server Err.')
-                console.log("hello")
+                
             })
     }
 
@@ -45,7 +45,7 @@ function ProductDetail() {
         <Header />
         PRODUCT DETAILS :
         
-        <div >
+        <div className="w3-container" >
         <br></br>
             {product && <div className="d-flex justify-content-between flex-wrap">
                 <div>
@@ -55,14 +55,17 @@ function ProductDetail() {
                    
                     <h6><br></br> Product Description : </h6>
                     {product.pdesc}
-                </div>
-                <div>
+                
+                <br></br><hr></hr>
+                
+                <h3><br></br> Product Price : </h3>
                     <h3 className="m-2 price-text"> Rs. {product.price} /- </h3>
                     <p className="m-2"> {product.pname}  | {product.category} </p>
                     <p className="m-2 text-success"> {product.pdesc} </p>
 
                     {product.addedBy &&
-                        <button onClick={() => handleContact(product.addedBy)}>
+                        // <button onClick={() => handleContact(product.addedBy)}>
+                        <button onClick={() => alert('User Detail: \nName:- Srushti \nMobile:- 7666308595 \nemail:- srushtigade.1207@gmail.com') }>
                             SHOW CONTACT DETAILS
                         </button>}
                     {user && user.username && <h4>{user.username}</h4>}
